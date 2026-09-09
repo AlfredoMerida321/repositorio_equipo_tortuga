@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Escribir en Markdown
+title: Diagrama a Bloques
 nav_order: 4
 ---
 

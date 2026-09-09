@@ -1,10 +1,27 @@
 ---
 layout: default
-title: Estructura del repositorio
+title: Descripcion del Proyecto
 nav_order: 3
 ---
 
-# Estructura del repositorio
+# Objetivo
+
+# Requerimientos Técnicos
+
+# Componentes Físicos Necesarios
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 En este curso trabajaremos **solo con GitHub Pages + Codespaces**. La meta es que tu repositorio tenga una estructura predecible:
 
@@ -202,4 +219,4 @@ Ejemplo de link:
 
 ## Siguiente tema
 
-[Escritura en Markdown](03-markdown.md)
+[Diagrama a Bloques](03-diagramaBloques.md)

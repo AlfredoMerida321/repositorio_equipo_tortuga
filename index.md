@@ -11,5 +11,5 @@ Este repositorio está diseñado para documentar el proceso del diseño y constr
 
 Contenido:
 - [1. Equipo](01-equipo.md)
-- [1. Descripción de Proyecto](01-descripcion.md)
-- [1. Diagrama a Bloques](01-diagramaBloques.md)
+- [2. Descripción de Proyecto](01-descripcion.md)
+- [3. Diagrama a Bloques](01-diagramaBloques.md)
