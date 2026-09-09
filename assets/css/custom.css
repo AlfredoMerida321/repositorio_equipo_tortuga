@@ -9,7 +9,7 @@ a { text-decoration-color: rgba(224, 0, 52, 0.4); }
 a:hover { color: #b00028; text-decoration-color: rgba(176, 0, 40, 0.6); }
 a:focus { outline: 2px solid #FFD5DE; outline-offset: 2px; }
 
-/* === SIDEBAR ROJO COMPLETO === */
+/* === SIDEBAR VERDE COMPLETO === */
 .side-bar,
 .side-bar .site-nav,
 .side-bar .nav-list { background-color: #00e004 !important; }
