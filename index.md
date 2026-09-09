@@ -17,8 +17,4 @@ Este repositorio está diseñado para documentar el proceso del diseño y constr
 
 
 Contenido:
-- [1. Publicar en GitHub Pages](01-publicar-en-github-pages.md)
-- [2. Estructura del repositorio](02-estructura-del-repo.md)
-- [3. Escribir en Markdown](03-markdown.md)
-- [4. Personalización visual](04-estilos.md)
-
+- [1. Documentación](01-publicar-en-github-pages.md)
