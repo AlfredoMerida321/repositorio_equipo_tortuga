@@ -9,11 +9,13 @@ nav_order: 1
 
 En esta sección se presenta el plano utilizado para fabricar las piezas del brazo robot 2D.
 
-Se utilizó un plano encontrado en [instructables.com](https://https://www.instructables.com/Pocket-Sized-Robot-Arm-meArm-V04/) para la construcción de este mecanismo. 
+Aquí se documentan la distribución de las piezas, las dimensiones utilizadas y la preparación del archivo para el proceso de corte.
 
-Aquí se documentan la distribución de las piezas, las dimensiones utilizadas y la preparación del archivo para el proceso de corte. The definición 
+Se utilizó un plano encontrado en <a href="https://www.instructables.com/Pocket-Sized-Robot-Arm-meArm-V04/" target="_blank">instructables.com</a> para la construcción de este mecanismo. 
 
-SG90
+Entendiendo que tenía el archivo dimensiones estandarizadas de 20 x 30cm, pudimos identificar las dimensiones de cada pieza a escala física / real. 
+
+
 
 ## Plano
 
