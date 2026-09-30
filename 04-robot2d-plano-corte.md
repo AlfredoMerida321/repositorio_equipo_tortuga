@@ -13,8 +13,11 @@ Aquí se documentan la distribución de las piezas, las dimensiones utilizadas y
 
 ## Plano
 
-Aquí puedes insertar la imagen o PDF del plano.
+<iframe
+  src="assets/files/MeArm_piezas_P1_a_P36.pdf"
+  width="100%"
+  height="800px">
+</iframe>
 
-Ejemplo:
 
-![Plano de corte](assets/img/plano_robot)
+[Ver PDF en pantalla completa](assets/files/MeArm_piezas_P1_a_P36.pdf)

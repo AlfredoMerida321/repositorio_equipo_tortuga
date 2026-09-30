@@ -11,7 +11,7 @@ Este repositorio está diseñado para documentar el proceso del diseño y constr
 
 Contenido:
 - [1. Equipo](01-equipo.md)
-- [2. Descripción de Proyecto](01-descripcion.md)
-- [3. Diagrama a Bloques](01-diagramaBloques.md)
-- [4. Robot 2D (Cortado a láser)](01-Robot2D.md)
-- [5. Robot 3D](01-Robot3D.md)
+- [2. Descripción de Proyecto](02-descripcion.md)
+- [3. Diagrama a Bloques](03-diagramaBloques.md)
+- [4. Robot 2D (Cortado a láser)](04-Robot2D.md)
+- [5. Robot 3D](05-Robot3D.md)
