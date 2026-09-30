@@ -17,4 +17,4 @@ Aquí puedes insertar la imagen o PDF del plano.
 
 Ejemplo:
 
-![Plano de corte](assets/img/plano_robot2d.png)
+![Plano de corte](assets/img/plano_robot)
