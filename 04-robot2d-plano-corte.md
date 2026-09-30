@@ -7,9 +7,13 @@ nav_order: 1
 
 # Plano de cortado
 
-En esta sección se presenta el plano utilizado para fabricar las piezas del robot 2D.
+En esta sección se presenta el plano utilizado para fabricar las piezas del brazo robot 2D.
 
-Aquí se documentan la distribución de las piezas, las dimensiones utilizadas y la preparación del archivo para el proceso de corte.
+Se utilizó un plano encontrado en [instructables.com](https://https://www.instructables.com/Pocket-Sized-Robot-Arm-meArm-V04/) para la construcción de este mecanismo. 
+
+Aquí se documentan la distribución de las piezas, las dimensiones utilizadas y la preparación del archivo para el proceso de corte. The definición 
+
+SG90
 
 ## Plano
 
