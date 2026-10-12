@@ -24,7 +24,7 @@ parent: Robot 2D
 
 ## 10. Secuencia de construcción
 
-![Secuencia propuesta de ensamblaje]({{ '/assets/diagrams/ensamble.svg' | relative_url }})
+![Secuencia propuesta de ensamblaje]({{ '/assets/diagrams/ensamble.png' | relative_url }})
 
 1. Revisar escala, espesor, ranuras y perforaciones antes del corte; realizar una probeta de ajuste.
 2. Desbarbar sin modificar cotas funcionales y separar piezas por función.

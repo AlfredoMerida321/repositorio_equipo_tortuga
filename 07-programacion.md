@@ -9,9 +9,9 @@ nav_order: 8
 
 ## 19. Arquitectura del software
 
-El firmware `Brazos_Gemelos.ino`, recuperado de la entrega anterior, integra adquisición analógica, detección táctil, selección de modo, generador de consignas y salida PCA9685. El servidor HTTP y su página están incorporados en el mismo archivo. Se incluye el original sin modificar sus conexiones ni el comportamiento del control.
+El firmware `Brazos_Gemelos.ino`, organizado con un archivo de configuración editable, integra adquisición analógica, detección táctil, selección de modo, generador de consignas y salida PCA9685. El servidor HTTP y su página están incorporados en el mismo archivo. La versión de esta práctica conserva el mapeo de conexiones y agrega consulta de estado por serie y HTTP.
 
-![Flujo de ejecución]({{ '/assets/diagrams/flujo.svg' | relative_url }})
+![Flujo de ejecución]({{ '/assets/diagrams/flujo.png' | relative_url }})
 
 ## 20. Ley de operación
 
@@ -57,9 +57,9 @@ Esta vista se extrae del HTML original y permite revisar la disposición y etiqu
 | Adafruit BusIO | Dependencia del controlador | Versión exacta anterior no registrada |
 | Arduino IDE | Compilar y cargar ESP32 Dev Module | Versión anterior no registrada |
 | Navegador con WebGL | Visor STL propio sin librerías externas | JavaScript ES2015+, WebGL 1 |
-| Jekyll / Just the Docs | Sitio original GitHub Pages | Tema remoto original sin tag fijado |
+| HTML estático y CSS local | Reporte navegable; estilos basados en el sitio original | Sin compilación ni dependencias de red para visualizar |
 
-El reporte no inventa versiones empleadas. Para cerrar la reproducibilidad, registrar versiones del core/IDE y bibliotecas, exportar el log de compilación y congelar la revisión del tema en `registros/dependencias.csv`. [Código oficial del driver](https://github.com/adafruit/Adafruit-PWM-Servo-Driver-Library) y [core oficial ESP32](https://github.com/espressif/arduino-esp32).
+El reporte no inventa versiones empleadas. Para cerrar la reproducibilidad, registrar versiones del core/IDE y bibliotecas, exportar el log de compilación en `registros/dependencias.csv`. [Código oficial del driver](https://github.com/adafruit/Adafruit-PWM-Servo-Driver-Library) y [core oficial ESP32](https://github.com/espressif/arduino-esp32).
 
 ## 23. Organización en funciones
 
@@ -77,12 +77,14 @@ El reporte no inventa versiones empleadas. Para cerrar la reproducibilidad, regi
 
 ## 24. Código fuente descargable y ejecución
 
-[Descargar firmware original]({{ '/firmware/Brazos_Gemelos/Brazos_Gemelos.ino' | relative_url }}) · [Descargar carpeta Arduino en ZIP]({{ '/assets/files/Brazos_Gemelos.zip' | relative_url }})
+La carpeta Arduino contiene el programa y `Config.h`, donde se ajustan pines, sentidos, velocidades, pulsos y límites. En el monitor serie, enviar `?` muestra modo y consignas. En remoto, `/status` devuelve esas consignas en JSON. No son mediciones de posición.
 
-1. Extraer la carpeta `Brazos_Gemelos` y abrir el `.ino` del mismo nombre.
+
+[Ver archivo principal .ino]({{ '/firmware/Brazos_Gemelos/Brazos_Gemelos.ino' | relative_url }}) · [Descargar carpeta Arduino en ZIP]({{ '/assets/files/Brazos_Gemelos.zip' | relative_url }})
+
+1. Descargar el ZIP, extraer la carpeta `Brazos_Gemelos` y abrir el `.ino` del mismo nombre. Conservar `Config.h` junto al programa.
 2. En Arduino IDE instalar el core ESP32 de Espressif y las bibliotecas Adafruit PWM Servo Driver y BusIO.
 3. Seleccionar **ESP32 Dev Module**, puerto correspondiente y verificar compilación. El programa rechaza por preprocesador otras familias.
 4. Cargar, comprobar mensajes de arranque y seguir la calibración mecánica antes de acoplar cargas.
 5. Guardar versiones y log de compilación junto con resultados de prueba.
 
-**Validación de esta entrega:** el código se recuperó completo y se cotejaron pines, canales, constantes y documentación. No se dispone aquí de toolchain Arduino ni de los brazos para certificar compilación/carga o comportamiento físico. La condición “corresponde a la versión demostrada” requiere cotejar este archivo con el que está cargado en el ESP32 y anexar una demostración.

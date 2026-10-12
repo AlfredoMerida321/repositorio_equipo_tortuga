@@ -14,4 +14,4 @@ Todo el material ha sido **revisado críticamente, editado y validado por el aut
 
 ## Actualización de práctica 01
 
-Se utilizó asistencia de IA para reorganizar documentación, generar esquemas y un visor STL, calcular envolventes geométricas y establecer protocolos de prueba. El firmware anterior se recuperó sin modificar. No se generaron fotografías de prototipos ni resultados experimentales. El equipo debe verificar cableado, dimensiones, versiones y resultados antes de entregar.
+Se utilizó asistencia de IA para reorganizar documentación, generar esquemas y un visor STL, calcular envolventes geométricas y establecer protocolos de prueba. El firmware anterior se recuperó con configuración editable. No se generaron fotografías de prototipos ni resultados experimentales. El equipo debe verificar cableado, dimensiones, versiones y resultados antes de entregar.

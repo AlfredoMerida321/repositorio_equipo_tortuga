@@ -9,9 +9,9 @@ nav_order: 7
 
 ## 13. Diagrama de bloques electrónico
 
-![Esquemático modular]({{ '/assets/diagrams/esquematico.svg' | relative_url }})
+![Esquemático modular]({{ '/assets/diagrams/esquematico.png' | relative_url }})
 
-[Descargar SVG editable]({{ '/assets/diagrams/esquematico.svg' | relative_url }}). El esquema expresa las conexiones del firmware recuperado. Las etiquetas de red iguales indican continuidad eléctrica. Corresponde a módulos comerciales, no al circuito interno de la ESP32 ni del PCA9685. El cableado exacto del montaje debe verificarse por continuidad; no puede reconstruirse completamente a partir de las fotos.
+[Descargar SVG editable]({{ '/assets/diagrams/esquematico.svg' | relative_url }}). El esquema expresa las conexiones del firmware de la práctica. Las etiquetas de red iguales indican continuidad eléctrica. Corresponde a módulos comerciales, no al circuito interno de la ESP32 ni del PCA9685. El cableado exacto del montaje debe verificarse por continuidad; no puede reconstruirse completamente a partir de las fotos.
 
 ## 14. Lista de materiales electrónicos
 
@@ -79,3 +79,10 @@ La foto E01 documenta ubicación general de los controles y cableado. Las correc
 | Touch | Toque sostenido y liberación | Un cambio de modo por toque |
 
 **Estado:** protocolos definidos; faltan mediciones fechadas y capturas de instrumentos. Registrar resultados en `registros/pruebas.csv`.
+
+
+## Pinout gráfico y descargas
+
+![Pinout completo]({{ '/assets/diagrams/pinout.png' | relative_url }})
+
+[Pinout editable SVG]({{ '/assets/diagrams/pinout.svg' | relative_url }}) · [Pinout PNG]({{ '/assets/diagrams/pinout.png' | relative_url }}) · [Tabla CSV]({{ '/assets/files/Pinout_Brazos.csv' | relative_url }}) · [Código y conexiones ZIP]({{ '/assets/files/Brazos_Gemelos.zip' | relative_url }}).

@@ -21,7 +21,7 @@ EEZYbotARM, diseño de **daGHIZmo**, versión de archivos recibida con actualiza
 
 [Ampliar visor]({{ '/viewer.html' | relative_url }})
 
-Arrastrar para rotar, rueda para acercar, seleccionar una pieza para inspeccionarla. Los botones permiten vistas isométrica, frontal, lateral y superior, y descarga del STL. **Despiece** muestra los archivos distribuidos en una cuadrícula, no un ensamble cinemático. No se entregaron transformaciones de montaje ni un CAD de conjunto; el visor no inventa esa geometría. Las dimensiones son envolventes del archivo, no recorridos del robot.
+Arrastrar para rotar, rueda para acercar, seleccionar una pieza para inspeccionarla. El visor incorpora las geometrías y funciona sin solicitudes externas. Si la aceleración gráfica falla, cambia automáticamente a Canvas; también puede seleccionarse **Vista compatible**. Los botones permiten vistas isométrica, frontal, lateral y superior, y descarga del STL. **Despiece** muestra los archivos distribuidos en una cuadrícula, no un ensamble cinemático. No se entregaron transformaciones de montaje ni un CAD de conjunto; el visor no inventa esa geometría. Las dimensiones son envolventes del archivo, no recorridos del robot.
 
 ## 5–8. Inventario geométrico y láminas
 
@@ -75,7 +75,7 @@ No se proponen parámetros como si hubieran sido los usados. Completar `registro
 
 ## 10–12. Montaje y comprobación
 
-![Orden técnico de montaje]({{ '/assets/diagrams/ensamble.svg' | relative_url }})
+![Orden técnico de montaje]({{ '/assets/diagrams/ensamble.png' | relative_url }})
 
 Comprobar giro de base, ejes libres, paralelismo, engrane de dedos y recorrido de cables antes de energizar. Después calibrar cada servo sin carga. Las fotos acreditan el ensamblaje terminado; los ensayos y resultados están [definidos para registro]({{ '/08-pruebas/' | relative_url }}), todavía sin mediciones.
 

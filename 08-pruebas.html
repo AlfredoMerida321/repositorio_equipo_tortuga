@@ -1,0 +1,180 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Integración y pruebas · Equipo Tortuga</title><link rel="icon" href="assets/img/favicon.ico"><link rel="stylesheet" href="assets/css/custom.css"><link rel="stylesheet" href="assets/css/static.css"></head><body><svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="tortuga-svg" viewBox="0 0 100 60">
+    <!-- patas traseras -->
+    <ellipse class="leg-bl" cx="24" cy="47" rx="8" ry="5" fill="#0a7a0c"/>
+    <ellipse class="leg-br" cx="24" cy="47" rx="8" ry="5" fill="#08650a" opacity="0.9"/>
+    <!-- patas delanteras -->
+    <ellipse class="leg-fl" cx="72" cy="47" rx="8" ry="5" fill="#0a7a0c"/>
+    <ellipse class="leg-fr" cx="72" cy="47" rx="8" ry="5" fill="#08650a" opacity="0.9"/>
+    <!-- cola -->
+    <path d="M14 34 Q4 36 8 42 Q12 40 16 36 Z" fill="#0a7a0c"/>
+    <!-- cuerpo / caparazón -->
+    <ellipse cx="50" cy="30" rx="38" ry="22" fill="#066007"/>
+    <ellipse cx="50" cy="30" rx="38" ry="22" fill="none" stroke="#04440a" stroke-width="1.5" opacity="0.5"/>
+    <!-- hexágonos del caparazón -->
+    <g fill="none" stroke="#0d8a12" stroke-width="1.6" opacity="0.85">
+      <polygon points="50,15 58,20 58,29 50,34 42,29 42,20"/>
+      <polygon points="30,22 37,26 37,34 30,38 23,34 23,26"/>
+      <polygon points="70,22 77,26 77,34 70,38 63,34 63,26"/>
+      <polygon points="40,36 47,40 47,47 40,50 33,47 33,40"/>
+      <polygon points="60,36 67,40 67,47 60,50 53,47 53,40"/>
+    </g>
+    <!-- cabeza -->
+    <ellipse cx="90" cy="27" rx="11" ry="9" fill="#0a7a0c"/>
+    <circle cx="94" cy="24" r="1.6" fill="#08240a"/>
+  </symbol>
+</svg><button class="mobile-menu" onclick="document.body.classList.toggle('menu-open')" aria-label="Mostrar menú">☰ Menú</button><aside class="side-bar"><header class="site-header"><a class="site-title" href="index.html"><img src="assets/img/logotipo.png" alt="Logo" class="site-logo">Equipo Tortuga</a></header><div class="search"><input id="filter" placeholder="Buscar sección…" aria-label="Buscar sección"></div><nav class="site-nav"><a class="nav-list-link  " href="index.html">Práctica 01 · Brazos robóticos</a><a class="nav-list-link  " href="01-equipo.html">Equipo de Proyecto</a><a class="nav-list-link  " href="02-descripcion.html">Concepto y definición</a><a class="nav-list-link  " href="03-diagramaBloques.html">Arquitectura y diagramas</a><a class="nav-list-link  " href="04-Robot2D.html">Robot 2D</a><a class="nav-list-link child " href="04-robot2d-plano-corte.html">Plano de cortado</a><a class="nav-list-link child " href="04-robot2d-partes-renderizadas.html">Partes renderizadas</a><a class="nav-list-link child " href="04-robot2d-ensamble-final.html">Ensamble final</a><a class="nav-list-link child " href="04-robot2d-proceso-ensamble.html">Proceso y ensamble final</a><a class="nav-list-link  " href="05-Robot3D.html">Robot 3D y visor</a><a class="nav-list-link  " href="06-electronica.html">Electrónica y conexiones</a><a class="nav-list-link  " href="07-programacion.html">Programación e interfaz</a><a class="nav-list-link  active" href="08-pruebas.html">Integración y pruebas</a><a class="nav-list-link  " href="09-conclusiones.html">Comparación y conclusiones</a><a class="nav-list-link  " href="10-rubrica.html">Matriz de rúbrica y archivos</a><a class="nav-list-link  " href="LEEME_ACTUALIZACION.html">Desarrollo de la práctica</a><a class="nav-list-link  " href="12-proyecto-tortuga.html">Proyecto de tortuga suave</a><a class="nav-list-link  " href="uso-ia.html">Uso de IA en la elaboración de este manual</a></nav><div class="side-note">IBERO · Práctica 01<br>Ingeniería Mecatrónica</div></aside><div class="main"><header class="main-header"><span>Práctica 01 · Brazos robóticos</span><a href="https://github.com/alfredo-merida/repositorio_equipo_tortuga">Repositorio en GitHub</a></header><main class="main-content page-content"><h1>Integración y pruebas</h1>
+<h2>25. Integración física</h2>
+<p><img src="assets/img/practica01/sistema-completo.png" alt="E01 — montaje completo"></p>
+<p><strong>E01:</strong> ambos mecanismos se apoyan sobre un tablero común. Se observan cuatro joysticks, ESP32 con borneras, módulo convertidor y mazos a servos. Faltan fotos de detalle de la distribución de potencia, identificación CH0–CH7 y sujeción final del cableado. No se puede confirmar la continuidad eléctrica solo con esta vista.</p>
+<h2>26–28. Protocolo y resultados</h2>
+<p>Los siguientes criterios son <strong>propuestos para el ensayo</strong>, no resultados observados. Utilizar el mismo objeto, posiciones marcadas, alimentación y condiciones para las dos versiones. Identificar cada evidencia por nombre de archivo y fecha.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Prueba</th>
+<th>Procedimiento</th>
+<th>Aceptación / registro</th>
+<th>Estado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>T01</td>
+<td>Alimentación</td>
+<td>Medir lógica y potencia en reposo y movimiento</td>
+<td>Valores dentro de fichas; sin reinicios</td>
+<td>Pendiente</td>
+</tr>
+<tr>
+<td>T02</td>
+<td>I²C y PWM</td>
+<td>Arranque y medición en ocho canales</td>
+<td>PCA detectado; periodo cercano a 20 ms</td>
+<td>Pendiente</td>
+</tr>
+<tr>
+<td>T03</td>
+<td>Joysticks</td>
+<td>Accionar cada uno de los ocho ejes por separado</td>
+<td>Solo se mueve el canal asignado, sentido correcto</td>
+<td>Pendiente</td>
+</tr>
+<tr>
+<td>T04</td>
+<td>Centro estable</td>
+<td>Soltar controles 30 s tras calibrar</td>
+<td>Sin incremento de consigna; observar deriva mecánica</td>
+<td>Pendiente</td>
+</tr>
+<tr>
+<td>T05</td>
+<td>Movilidad</td>
+<td>Barrer de forma gradual el rango calibrado sin carga</td>
+<td>Sin colisiones, bloqueo ni cables tensos; registrar grados de consigna</td>
+<td>Pendiente</td>
+</tr>
+<tr>
+<td>T06</td>
+<td>Touch</td>
+<td>Realizar 10 cambios manual/remoto</td>
+<td>Un cambio por toque y retorno correcto</td>
+<td>Pendiente</td>
+</tr>
+<tr>
+<td>T07</td>
+<td>Remoto</td>
+<td>Conectar AP y probar los 16 botones</td>
+<td>Respuesta del servo correcto al mantener/soltar</td>
+<td>Pendiente</td>
+</tr>
+<tr>
+<td>T08</td>
+<td>Pérdida de enlace</td>
+<td>Mover un eje y desconectar cliente</td>
+<td>Cesa incremento tras caducidad; registrar tiempo, par permanece</td>
+<td>Pendiente</td>
+</tr>
+<tr>
+<td>T09</td>
+<td>Retorno manual</td>
+<td>Volver desde remoto con una palanca desviada</td>
+<td>No habilita hasta neutro estable por 400 ms</td>
+<td>Pendiente</td>
+</tr>
+<tr>
+<td>T10</td>
+<td>Agarre</td>
+<td>Cerrar sobre objeto de masa y tamaño medidos</td>
+<td>Sostiene y libera sin deslizamiento; anotar objeto</td>
+<td>Pendiente</td>
+</tr>
+<tr>
+<td>T11</td>
+<td>Ciclo completo</td>
+<td>Tomar objeto en A, elevar, girar, dejar en B y volver</td>
+<td>10 intentos por versión; registrar éxitos y tiempos</td>
+<td>Pendiente</td>
+</tr>
+<tr>
+<td>T12</td>
+<td>Repetibilidad</td>
+<td>Volver a una marca 10 veces desde igual postura</td>
+<td>Medir dispersión del efector en mm; no inferir de PWM</td>
+<td>Pendiente</td>
+</tr>
+<tr>
+<td>T13</td>
+<td>Holgura y ensamble</td>
+<td>Inspeccionar articulaciones sin energía</td>
+<td>Registrar juego, ajustes y fotografías</td>
+<td>Pendiente</td>
+</tr>
+</tbody></table>
+<h3>Secuencia funcional completa a documentar</h3>
+<p>Colocar un objeto identificado en A → aproximar pinza abierta → cerrar → elevar → girar a B → descender → abrir → regresar a posición inicial. Repetir por cada versión en manual y demostrar también remoto. El video debe mostrar el brazo, controles y objeto en una toma continua. Registrar caídas, asistencia manual, reinicios y contactos con topes; no eliminar intentos fallidos del conteo.</p>
+<p><strong>Éxito (%) = 100 × ciclos completos / intentos.</strong> Para tiempos, reportar media, mínimo y máximo con número de repeticiones. Para repetibilidad, reportar los puntos medidos y su dispersión respecto a la media. La exactitud requiere además un objetivo de referencia medido; no confundir ambas magnitudes.</p>
+<p><a href="registros/pruebas.csv">Descargar registro de pruebas CSV</a> · <a href="registros/fabricacion.csv">Registro de fabricación</a></p>
+<h2>Evidencias disponibles</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Archivo</th>
+<th>Qué acredita</th>
+<th>Qué no acredita</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E01</td>
+<td>sistema-completo.png</td>
+<td>Presencia de ambas versiones, joysticks y montaje electrónico</td>
+<td>Continuidad, carga, precisión o modos funcionando</td>
+</tr>
+<tr>
+<td>E02</td>
+<td>brazo-impreso.png</td>
+<td>Ensamble mecánico de EEZYbotARM</td>
+<td>Material exacto, parámetros o prueba funcional</td>
+</tr>
+<tr>
+<td>D01</td>
+<td>MeArm_piezas_P1_a_P36.pdf</td>
+<td>Referencia gráfica y numeración de piezas</td>
+<td>CAD nativo o plano totalmente acotado</td>
+</tr>
+<tr>
+<td>D02</td>
+<td>17 STL originales</td>
+<td>Geometría de referencia de EEZYbotARM</td>
+<td>Ensamble cinemático o CAD paramétrico</td>
+</tr>
+<tr>
+<td>S01</td>
+<td>Brazos_Gemelos.ino</td>
+<td>Lógica, mapeo y parámetros recuperados</td>
+<td>Coincidencia con binario cargado y ensayo físico</td>
+</tr>
+</tbody></table>
+<p><code>assets/videos/demo.mp4</code> se conserva del repositorio original, pero no se usa como evidencia de funcionamiento: no se estableció su relación con la práctica ni una fecha/identificación. Adjuntar el video real en la matriz cuando se valide su procedencia.</p>
+<footer class="custom-footer"><p>Copyright © 2026 IBERO. Proyecto desarrollado por Joshua Abdiel Barragán Guardado, Alfredo José Mérida López y Alonso Cruz Espinosa.</p><p>Documentación del equipo: CC BY 4.0. EEZYbotARM: daGHIZmo, CC BY-NC. <a href="uso-ia.html">Uso de IA</a></p></footer></main></div><div class="turtle-mascot" aria-hidden="true"><svg viewBox="0 0 100 60"><use href="#tortuga-svg"/></svg></div><script>document.getElementById('filter').oninput=e=>{const s=e.target.value.toLocaleLowerCase();document.querySelectorAll('.site-nav a').forEach(a=>a.hidden=!a.textContent.toLocaleLowerCase().includes(s))};</script></body></html>

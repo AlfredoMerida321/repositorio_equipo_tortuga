@@ -26,11 +26,11 @@ Se requiere comparar dos técnicas de fabricación mediante manipuladores capace
 | R07 | Movimiento acotado | Centro estable, sentidos correctos y límites sin colisión |
 | R08 | Entrega reproducible | Código, geometría, conexiones, instrucciones y registro de pruebas |
 
-**Restricciones.** El firmware recuperado requiere ESP32 clásica WROOM-32 (no C3/C6/S3), servos posicionales, fuente externa para potencia y tierra común. Los límites iniciales 60–120° y posición 90° son consignas de prueba, pendientes de calibración mecánica. No existe sensor externo de posición ni control cartesiano implementado. La pinza añade una acción de apertura a los tres movimientos de posicionamiento; cuatro servos no equivalen a cuatro ejes independientes de pose cartesiana.
+**Restricciones.** El firmware de la práctica requiere ESP32 clásica WROOM-32 (no C3/C6/S3), servos posicionales, fuente externa para potencia y tierra común. Los límites iniciales 60–120° y posición 90° son consignas de prueba, pendientes de calibración mecánica. No existe sensor externo de posición ni control cartesiano implementado. La pinza añade una acción de apertura a los tres movimientos de posicionamiento; cuatro servos no equivalen a cuatro ejes independientes de pose cartesiana.
 
 ## 2. Bocetos de la solución
 
-![Boceto funcional y secuencia mecánica]({{ '/assets/diagrams/ensamble.svg' | relative_url }})
+![Boceto funcional y secuencia mecánica]({{ '/assets/diagrams/ensamble.png' | relative_url }})
 
 El conjunto se organiza desde la base fija hacia la pinza: base giratoria, soportes de hombro, eslabones y paralelogramo, soporte de pinza y dedos. La transmisión mediante eslabones hace que las consignas de servo no se interpreten directamente como ángulos cartesianos del efector.
 
@@ -43,7 +43,7 @@ Referencia del autor del modelo, **no fotografía del prototipo del equipo**. V�
 | Decisión | Alternativas | Selección y justificación |
 |---|---|---|
 | Estructura | Placas cortadas / sólidos impresos | Se construyen ambas para comparar fabricación y ensamble; no se asume cuál es más resistente sin ensayo |
-| Generación PWM | ESP32 directa / PCA9685 | PCA9685 concentra ocho salidas y mantiene pulsos mediante hardware; coincide con el firmware recuperado |
+| Generación PWM | ESP32 directa / PCA9685 | PCA9685 concentra ocho salidas y mantiene pulsos mediante hardware; coincide con el firmware de la práctica |
 | Interfaz | Joysticks / navegador | Se conservan ambas: manual para control local; AP para acceso remoto sin router |
 | Procesamiento | Dos ESP32 / una ESP32 | Una ESP32 comparte lógica, alimentación de control y comunicación; mantiene asignación independiente por canal |
 | Regulación | Lazo abierto de consignas / sensores externos | Se usa el lazo externo abierto existente; la realimentación interna del servo no proporciona posición al ESP32 |

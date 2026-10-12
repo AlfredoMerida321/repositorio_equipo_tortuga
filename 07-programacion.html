@@ -1,0 +1,153 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Programación e interfaz · Equipo Tortuga</title><link rel="icon" href="assets/img/favicon.ico"><link rel="stylesheet" href="assets/css/custom.css"><link rel="stylesheet" href="assets/css/static.css"></head><body><svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="tortuga-svg" viewBox="0 0 100 60">
+    <!-- patas traseras -->
+    <ellipse class="leg-bl" cx="24" cy="47" rx="8" ry="5" fill="#0a7a0c"/>
+    <ellipse class="leg-br" cx="24" cy="47" rx="8" ry="5" fill="#08650a" opacity="0.9"/>
+    <!-- patas delanteras -->
+    <ellipse class="leg-fl" cx="72" cy="47" rx="8" ry="5" fill="#0a7a0c"/>
+    <ellipse class="leg-fr" cx="72" cy="47" rx="8" ry="5" fill="#08650a" opacity="0.9"/>
+    <!-- cola -->
+    <path d="M14 34 Q4 36 8 42 Q12 40 16 36 Z" fill="#0a7a0c"/>
+    <!-- cuerpo / caparazón -->
+    <ellipse cx="50" cy="30" rx="38" ry="22" fill="#066007"/>
+    <ellipse cx="50" cy="30" rx="38" ry="22" fill="none" stroke="#04440a" stroke-width="1.5" opacity="0.5"/>
+    <!-- hexágonos del caparazón -->
+    <g fill="none" stroke="#0d8a12" stroke-width="1.6" opacity="0.85">
+      <polygon points="50,15 58,20 58,29 50,34 42,29 42,20"/>
+      <polygon points="30,22 37,26 37,34 30,38 23,34 23,26"/>
+      <polygon points="70,22 77,26 77,34 70,38 63,34 63,26"/>
+      <polygon points="40,36 47,40 47,47 40,50 33,47 33,40"/>
+      <polygon points="60,36 67,40 67,47 60,50 53,47 53,40"/>
+    </g>
+    <!-- cabeza -->
+    <ellipse cx="90" cy="27" rx="11" ry="9" fill="#0a7a0c"/>
+    <circle cx="94" cy="24" r="1.6" fill="#08240a"/>
+  </symbol>
+</svg><button class="mobile-menu" onclick="document.body.classList.toggle('menu-open')" aria-label="Mostrar menú">☰ Menú</button><aside class="side-bar"><header class="site-header"><a class="site-title" href="index.html"><img src="assets/img/logotipo.png" alt="Logo" class="site-logo">Equipo Tortuga</a></header><div class="search"><input id="filter" placeholder="Buscar sección…" aria-label="Buscar sección"></div><nav class="site-nav"><a class="nav-list-link  " href="index.html">Práctica 01 · Brazos robóticos</a><a class="nav-list-link  " href="01-equipo.html">Equipo de Proyecto</a><a class="nav-list-link  " href="02-descripcion.html">Concepto y definición</a><a class="nav-list-link  " href="03-diagramaBloques.html">Arquitectura y diagramas</a><a class="nav-list-link  " href="04-Robot2D.html">Robot 2D</a><a class="nav-list-link child " href="04-robot2d-plano-corte.html">Plano de cortado</a><a class="nav-list-link child " href="04-robot2d-partes-renderizadas.html">Partes renderizadas</a><a class="nav-list-link child " href="04-robot2d-ensamble-final.html">Ensamble final</a><a class="nav-list-link child " href="04-robot2d-proceso-ensamble.html">Proceso y ensamble final</a><a class="nav-list-link  " href="05-Robot3D.html">Robot 3D y visor</a><a class="nav-list-link  " href="06-electronica.html">Electrónica y conexiones</a><a class="nav-list-link  active" href="07-programacion.html">Programación e interfaz</a><a class="nav-list-link  " href="08-pruebas.html">Integración y pruebas</a><a class="nav-list-link  " href="09-conclusiones.html">Comparación y conclusiones</a><a class="nav-list-link  " href="10-rubrica.html">Matriz de rúbrica y archivos</a><a class="nav-list-link  " href="LEEME_ACTUALIZACION.html">Desarrollo de la práctica</a><a class="nav-list-link  " href="12-proyecto-tortuga.html">Proyecto de tortuga suave</a><a class="nav-list-link  " href="uso-ia.html">Uso de IA en la elaboración de este manual</a></nav><div class="side-note">IBERO · Práctica 01<br>Ingeniería Mecatrónica</div></aside><div class="main"><header class="main-header"><span>Práctica 01 · Brazos robóticos</span><a href="https://github.com/alfredo-merida/repositorio_equipo_tortuga">Repositorio en GitHub</a></header><main class="main-content page-content"><h1>Programación e interfaz</h1>
+<h2>19. Arquitectura del software</h2>
+<p>El firmware <code>Brazos_Gemelos.ino</code>, organizado con un archivo de configuración editable, integra adquisición analógica, detección táctil, selección de modo, generador de consignas y salida PCA9685. El servidor HTTP y su página están incorporados en el mismo archivo. La versión de esta práctica conserva el mapeo de conexiones y agrega consulta de estado por serie y HTTP.</p>
+<p><img src="assets/diagrams/flujo.png" alt="Flujo de ejecución"></p>
+<h2>20. Ley de operación</h2>
+<p>Cada joystick controla <strong>velocidad de cambio de consigna</strong>, no un ángulo absoluto. El filtro discreto es <code>f ← f + 0.30·(ADC − f)</code>. Se resta el centro calibrado y se aplica zona muerta de 280 cuentas. Fuera de ella se normaliza la desviación con el recorrido disponible a cada lado del centro.</p>
+<p><code>q[k+1] = saturar(q[k] + u[k] · sentido · velocidad_max · dt, mínimo, máximo)</code></p>
+<p>El bucle actualiza aproximadamente cada 20 ms y limita <code>dt</code> a 0.04 s. La velocidad máxima es 25°/s en bases y 20°/s en los demás ejes. La consigna inicial es 90° y los límites provisionales son 60–120°. El pulso se calcula con <code>1000 + (2000 − 1000)·q/180</code> µs; por tanto, esos límites iniciales producen aproximadamente 1333–1667 µs, no todo el intervalo 1000–2000 µs. Estos valores deben calibrarse para los servos y mecanismos reales.</p>
+<p>La realimentación de posición interna del servo no llega al programa: <code>angleDeg</code> almacena la orden, no una medición de la articulación.</p>
+<h2>21. Interfaz y procedimiento de operación</h2>
+<h3>Control manual</h3>
+<ol>
+<li>Verificar polaridad, GND común, distribución CH0–CH7 y tensión nominal de servos. Centrar servos inicialmente sin acoplar mecanismos para ajustar horns y límites.</li>
+<li>Encender ESP32 y fuente externa. No tocar electrodo y dejar joysticks centrados durante los tres segundos de calibración.</li>
+<li>Abrir monitor serie a 115200 bit/s. Comprobar <code>MANUAL listo</code> y ausencia de errores de PCA9685 o centro.</li>
+<li>Mantener todos los ejes al centro hasta habilitación (400 ms). Mover J1/J3 en X para base, en Y para codo; J2/J4 en Y para hombro y en X para pinza.</li>
+<li>Centrar un eje detiene el incremento angular y mantiene su consigna. Calibrar <code>JOY_DIR</code>, <code>SERVO_DIR</code>, <code>MIN_DEG</code> y <code>MAX_DEG</code> individualmente; no forzar topes.</li>
+</ol>
+<h3>Control remoto</h3>
+<ol>
+<li>Tocar el electrodo GPIO4 al menos 180 ms y soltar. El sistema crea su AP.</li>
+<li>Conectarse a <strong>Brazos_Gemelos</strong>, contraseña <strong>Brazos2026</strong>.</li>
+<li>Abrir <strong><a href="http://192.168.4.1">http://192.168.4.1</a></strong> en el navegador del dispositivo conectado. No requiere internet.</li>
+<li>Mantener pulsado uno de los 16 botones para mover un servo; soltar para detener. La implementación remota permite <strong>un eje a la vez</strong>.</li>
+<li>Sin cliente o sin comandos durante más de 450 ms, se detiene el incremento de consigna. El servo conserva par: no es un paro eléctrico de emergencia.</li>
+<li>Otro toque vuelve a manual, desconecta la red y exige centrar todos los joysticks antes de habilitar.</li>
+</ol>
+<h3>Vista de la interfaz incluida en el firmware</h3>
+<iframe title="Vista demostrativa de la interfaz del firmware" src="interfaz-demo.html" width="100%" height="750"></iframe>
+
+<p>Esta vista se extrae del HTML original y permite revisar la disposición y etiquetas. <strong>Es demostrativa: no conecta ni envía órdenes a un robot.</strong> No sustituye una captura real de la sesión AP; esa evidencia de operación aún debe adjuntarse.</p>
+<h2>22. Librerías y dependencias</h2>
+<table>
+<thead>
+<tr>
+<th>Recurso</th>
+<th>Función</th>
+<th>Versión / trazabilidad</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Arduino core ESP32 (Espressif)</td>
+<td>Arduino.h, Wire, WiFi, WebServer, esp_system</td>
+<td>Versión exacta de compilación anterior no registrada</td>
+</tr>
+<tr>
+<td>Adafruit PWM Servo Driver Library</td>
+<td>PCA9685, frecuencia y pulsos</td>
+<td>Versión exacta anterior no registrada; instalar con gestor</td>
+</tr>
+<tr>
+<td>Adafruit BusIO</td>
+<td>Dependencia del controlador</td>
+<td>Versión exacta anterior no registrada</td>
+</tr>
+<tr>
+<td>Arduino IDE</td>
+<td>Compilar y cargar ESP32 Dev Module</td>
+<td>Versión anterior no registrada</td>
+</tr>
+<tr>
+<td>Navegador con WebGL</td>
+<td>Visor STL propio sin librerías externas</td>
+<td>JavaScript ES2015+, WebGL 1</td>
+</tr>
+<tr>
+<td>HTML estático y CSS local</td>
+<td>Reporte navegable; estilos basados en el sitio original</td>
+<td>Sin compilación ni dependencias de red para visualizar</td>
+</tr>
+</tbody></table>
+<p>El reporte no inventa versiones empleadas. Para cerrar la reproducibilidad, registrar versiones del core/IDE y bibliotecas, exportar el log de compilación en <code>registros/dependencias.csv</code>. <a href="https://github.com/adafruit/Adafruit-PWM-Servo-Driver-Library">Código oficial del driver</a> y <a href="https://github.com/espressif/arduino-esp32">core oficial ESP32</a>.</p>
+<h2>23. Organización en funciones</h2>
+<table>
+<thead>
+<tr>
+<th>Bloque</th>
+<th>Responsabilidad</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>setup()</code></td>
+<td>I²C, PCA9685, salidas, calibración de 100 muestras, consigna inicial y rutas HTTP</td>
+</tr>
+<tr>
+<td><code>loop()</code></td>
+<td>Selecciona adquisición según modo, integra velocidades y actualiza servos</td>
+</tr>
+<tr>
+<td><code>updateTouch()</code></td>
+<td>Muestreo cada 25 ms, histéresis y validación de 180 ms</td>
+</tr>
+<tr>
+<td><code>changeMode()</code></td>
+<td>Detiene incremento, enciende/apaga AP, reinicia habilitación manual</td>
+</tr>
+<tr>
+<td><code>writeServo(ch)</code></td>
+<td>Convierte consigna angular a microsegundos y transmite al PCA9685</td>
+</tr>
+<tr>
+<td><code>stopMotion()</code></td>
+<td>Borra el canal/dirección activos de remoto; no desconecta alimentación</td>
+</tr>
+<tr>
+<td>Ruta <code>/</code></td>
+<td>Sirve HTML y renueva token de sesión</td>
+</tr>
+<tr>
+<td>Ruta <code>/cmd</code></td>
+<td>Valida token, secuencia, canal y dirección; actualiza comando</td>
+</tr>
+<tr>
+<td><code>send()</code> / <code>release()</code> del navegador</td>
+<td>Renovación de comandos cada 100 ms y liberación de botones</td>
+</tr>
+</tbody></table>
+<h2>24. Código fuente descargable y ejecución</h2>
+<p>La carpeta Arduino contiene el programa y <code>Config.h</code>, donde se ajustan pines, sentidos, velocidades, pulsos y límites. En el monitor serie, enviar <code>?</code> muestra modo y consignas. En remoto, <code>/status</code> devuelve esas consignas en JSON. No son mediciones de posición.</p>
+<p><a href="firmware/Brazos_Gemelos/Brazos_Gemelos.ino">Ver archivo principal .ino</a> · <a href="assets/files/Brazos_Gemelos.zip">Descargar carpeta Arduino en ZIP</a></p>
+<ol>
+<li>Descargar el ZIP, extraer la carpeta <code>Brazos_Gemelos</code> y abrir el <code>.ino</code> del mismo nombre. Conservar <code>Config.h</code> junto al programa.</li>
+<li>En Arduino IDE instalar el core ESP32 de Espressif y las bibliotecas Adafruit PWM Servo Driver y BusIO.</li>
+<li>Seleccionar <strong>ESP32 Dev Module</strong>, puerto correspondiente y verificar compilación. El programa rechaza por preprocesador otras familias.</li>
+<li>Cargar, comprobar mensajes de arranque y seguir la calibración mecánica antes de acoplar cargas.</li>
+<li>Guardar versiones y log de compilación junto con resultados de prueba.</li>
+</ol>
+<footer class="custom-footer"><p>Copyright © 2026 IBERO. Proyecto desarrollado por Joshua Abdiel Barragán Guardado, Alfredo José Mérida López y Alonso Cruz Espinosa.</p><p>Documentación del equipo: CC BY 4.0. EEZYbotARM: daGHIZmo, CC BY-NC. <a href="uso-ia.html">Uso de IA</a></p></footer></main></div><div class="turtle-mascot" aria-hidden="true"><svg viewBox="0 0 100 60"><use href="#tortuga-svg"/></svg></div><script>document.getElementById('filter').oninput=e=>{const s=e.target.value.toLocaleLowerCase();document.querySelectorAll('.site-nav a').forEach(a=>a.hidden=!a.textContent.toLocaleLowerCase().includes(s))};</script></body></html>

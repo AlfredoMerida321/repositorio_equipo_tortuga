@@ -20,6 +20,8 @@ Entendiendo que tenía el archivo dimensiones estandarizadas de 20 x 30cm, pudim
 
 ## Plano
 
+![Piezas MeArm]({{ '/assets/img/practica01/plano-mearm.png' | relative_url }})
+
 <iframe
   src="{{ '/assets/files/MeArm_piezas_P1_a_P36.pdf' | relative_url }}"
   width="100%"

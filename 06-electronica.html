@@ -1,0 +1,274 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Electrónica y conexiones · Equipo Tortuga</title><link rel="icon" href="assets/img/favicon.ico"><link rel="stylesheet" href="assets/css/custom.css"><link rel="stylesheet" href="assets/css/static.css"></head><body><svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="tortuga-svg" viewBox="0 0 100 60">
+    <!-- patas traseras -->
+    <ellipse class="leg-bl" cx="24" cy="47" rx="8" ry="5" fill="#0a7a0c"/>
+    <ellipse class="leg-br" cx="24" cy="47" rx="8" ry="5" fill="#08650a" opacity="0.9"/>
+    <!-- patas delanteras -->
+    <ellipse class="leg-fl" cx="72" cy="47" rx="8" ry="5" fill="#0a7a0c"/>
+    <ellipse class="leg-fr" cx="72" cy="47" rx="8" ry="5" fill="#08650a" opacity="0.9"/>
+    <!-- cola -->
+    <path d="M14 34 Q4 36 8 42 Q12 40 16 36 Z" fill="#0a7a0c"/>
+    <!-- cuerpo / caparazón -->
+    <ellipse cx="50" cy="30" rx="38" ry="22" fill="#066007"/>
+    <ellipse cx="50" cy="30" rx="38" ry="22" fill="none" stroke="#04440a" stroke-width="1.5" opacity="0.5"/>
+    <!-- hexágonos del caparazón -->
+    <g fill="none" stroke="#0d8a12" stroke-width="1.6" opacity="0.85">
+      <polygon points="50,15 58,20 58,29 50,34 42,29 42,20"/>
+      <polygon points="30,22 37,26 37,34 30,38 23,34 23,26"/>
+      <polygon points="70,22 77,26 77,34 70,38 63,34 63,26"/>
+      <polygon points="40,36 47,40 47,47 40,50 33,47 33,40"/>
+      <polygon points="60,36 67,40 67,47 60,50 53,47 53,40"/>
+    </g>
+    <!-- cabeza -->
+    <ellipse cx="90" cy="27" rx="11" ry="9" fill="#0a7a0c"/>
+    <circle cx="94" cy="24" r="1.6" fill="#08240a"/>
+  </symbol>
+</svg><button class="mobile-menu" onclick="document.body.classList.toggle('menu-open')" aria-label="Mostrar menú">☰ Menú</button><aside class="side-bar"><header class="site-header"><a class="site-title" href="index.html"><img src="assets/img/logotipo.png" alt="Logo" class="site-logo">Equipo Tortuga</a></header><div class="search"><input id="filter" placeholder="Buscar sección…" aria-label="Buscar sección"></div><nav class="site-nav"><a class="nav-list-link  " href="index.html">Práctica 01 · Brazos robóticos</a><a class="nav-list-link  " href="01-equipo.html">Equipo de Proyecto</a><a class="nav-list-link  " href="02-descripcion.html">Concepto y definición</a><a class="nav-list-link  " href="03-diagramaBloques.html">Arquitectura y diagramas</a><a class="nav-list-link  " href="04-Robot2D.html">Robot 2D</a><a class="nav-list-link child " href="04-robot2d-plano-corte.html">Plano de cortado</a><a class="nav-list-link child " href="04-robot2d-partes-renderizadas.html">Partes renderizadas</a><a class="nav-list-link child " href="04-robot2d-ensamble-final.html">Ensamble final</a><a class="nav-list-link child " href="04-robot2d-proceso-ensamble.html">Proceso y ensamble final</a><a class="nav-list-link  " href="05-Robot3D.html">Robot 3D y visor</a><a class="nav-list-link  active" href="06-electronica.html">Electrónica y conexiones</a><a class="nav-list-link  " href="07-programacion.html">Programación e interfaz</a><a class="nav-list-link  " href="08-pruebas.html">Integración y pruebas</a><a class="nav-list-link  " href="09-conclusiones.html">Comparación y conclusiones</a><a class="nav-list-link  " href="10-rubrica.html">Matriz de rúbrica y archivos</a><a class="nav-list-link  " href="LEEME_ACTUALIZACION.html">Desarrollo de la práctica</a><a class="nav-list-link  " href="12-proyecto-tortuga.html">Proyecto de tortuga suave</a><a class="nav-list-link  " href="uso-ia.html">Uso de IA en la elaboración de este manual</a></nav><div class="side-note">IBERO · Práctica 01<br>Ingeniería Mecatrónica</div></aside><div class="main"><header class="main-header"><span>Práctica 01 · Brazos robóticos</span><a href="https://github.com/alfredo-merida/repositorio_equipo_tortuga">Repositorio en GitHub</a></header><main class="main-content page-content"><h1>Electrónica y conexiones</h1>
+<h2>13. Diagrama de bloques electrónico</h2>
+<p><img src="assets/diagrams/esquematico.png" alt="Esquemático modular"></p>
+<p><a href="assets/diagrams/esquematico.svg">Descargar SVG editable</a>. El esquema expresa las conexiones del firmware de la práctica. Las etiquetas de red iguales indican continuidad eléctrica. Corresponde a módulos comerciales, no al circuito interno de la ESP32 ni del PCA9685. El cableado exacto del montaje debe verificarse por continuidad; no puede reconstruirse completamente a partir de las fotos.</p>
+<h2>14. Lista de materiales electrónicos</h2>
+<table>
+<thead>
+<tr>
+<th>Ref.</th>
+<th>Componente</th>
+<th align="right">Cantidad</th>
+<th>Función / adquisición</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>U1</td>
+<td>ESP32 clásica WROOM-32, Dev Module</td>
+<td align="right">1</td>
+<td>ADC, touch y Wi-Fi; proveedor del montaje no registrado</td>
+</tr>
+<tr>
+<td>U2</td>
+<td>Módulo PCA9685, dirección 0x40</td>
+<td align="right">1</td>
+<td>Ocho salidas PWM a 50 Hz; referencia del firmware</td>
+</tr>
+<tr>
+<td>J1–J4</td>
+<td>Joystick analógico de dos ejes</td>
+<td align="right">4</td>
+<td>Alimentar a 3.3 V; SW sin uso</td>
+</tr>
+<tr>
+<td>M1–M8</td>
+<td>Servos posicionales</td>
+<td align="right">8</td>
+<td>Cuatro por brazo; números de parte por eje pendientes</td>
+</tr>
+<tr>
+<td>E1</td>
+<td>Electrodo capacitivo</td>
+<td align="right">1</td>
+<td>Placa conductora y cable corto a GPIO4/T0; ubicación no identificable en fotos</td>
+</tr>
+<tr>
+<td>PS1</td>
+<td>Fuente externa regulada para servos</td>
+<td align="right">1</td>
+<td>Tensión según ficha de todos los servos; corriente a dimensionar y medir</td>
+</tr>
+<tr>
+<td>U3</td>
+<td>Convertidor DC/DC visible en E01</td>
+<td align="right">1 observado</td>
+<td>Modelo, ajuste y conexión exacta sin confirmar</td>
+</tr>
+<tr>
+<td>PCB1</td>
+<td>Adaptador ESP32 con borneras</td>
+<td align="right">1 observado</td>
+<td>Conexión mecánica/eléctrica, diseño comercial sin archivos</td>
+</tr>
+<tr>
+<td>USB</td>
+<td>Cable de alimentación/programación</td>
+<td align="right">1</td>
+<td>ESP32; no utilizar para alimentar los ocho servos</td>
+</tr>
+<tr>
+<td>CN</td>
+<td>Cables, conectores y distribución</td>
+<td align="right">Lote</td>
+<td>Cantidades, calibre y terminales pendientes de inventario</td>
+</tr>
+</tbody></table>
+<p>No se atribuyen precios o proveedores no documentados. El dimensionamiento de fuente requiere sumar corrientes de los servos en la condición de operación y prever picos simultáneos, después contrastar caída de tensión y calentamiento. No se puede calcular una corriente nominal fiable sin conocer los modelos exactos.</p>
+<h2>15. Conexiones completas de control</h2>
+<p><strong>Brazo 1 = MeArm; brazo 2 = EEZYbotARM.</strong> Esta convención debe coincidir con el cableado físico antes de ejecutar el programa.</p>
+<table>
+<thead>
+<tr>
+<th>Brazo</th>
+<th>Joystick / eje</th>
+<th align="right">GPIO ADC</th>
+<th>Acción</th>
+<th>PCA9685</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>J1 VRx</td>
+<td align="right">32</td>
+<td>Base izquierda/derecha</td>
+<td>CH0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>J1 VRy</td>
+<td align="right">33</td>
+<td>Codo adelante/atrás</td>
+<td>CH1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>J2 VRy</td>
+<td align="right">34</td>
+<td>Hombro adelante/atrás</td>
+<td>CH2</td>
+</tr>
+<tr>
+<td>1</td>
+<td>J2 VRx</td>
+<td align="right">35</td>
+<td>Pinza abrir/cerrar</td>
+<td>CH3</td>
+</tr>
+<tr>
+<td>2</td>
+<td>J3 VRx</td>
+<td align="right">36 / VP</td>
+<td>Base izquierda/derecha</td>
+<td>CH4</td>
+</tr>
+<tr>
+<td>2</td>
+<td>J3 VRy</td>
+<td align="right">39 / VN</td>
+<td>Codo adelante/atrás</td>
+<td>CH5</td>
+</tr>
+<tr>
+<td>2</td>
+<td>J4 VRy</td>
+<td align="right">25</td>
+<td>Hombro adelante/atrás</td>
+<td>CH6</td>
+</tr>
+<tr>
+<td>2</td>
+<td>J4 VRx</td>
+<td align="right">26</td>
+<td>Pinza abrir/cerrar</td>
+<td>CH7</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>Origen</th>
+<th>Destino</th>
+<th>Red / función</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ESP32 3V3</td>
+<td>VCC de PCA9685 y de J1–J4</td>
+<td>Alimentación lógica y analógica</td>
+</tr>
+<tr>
+<td>ESP32 GPIO21</td>
+<td>SDA PCA9685</td>
+<td>I²C datos</td>
+</tr>
+<tr>
+<td>ESP32 GPIO22</td>
+<td>SCL PCA9685</td>
+<td>I²C reloj</td>
+</tr>
+<tr>
+<td>ESP32 GPIO4</td>
+<td>E1</td>
+<td>Electrodo touch; no unir a VCC/GND</td>
+</tr>
+<tr>
+<td>Fuente externa positiva</td>
+<td>PCA9685 V+</td>
+<td>Potencia servos, tensión nominal según modelos</td>
+</tr>
+<tr>
+<td>Fuente negativa, ESP32 GND, PCA GND, J1–J4 GND</td>
+<td>Entre sí</td>
+<td>Referencia común</td>
+</tr>
+<tr>
+<td>PCA9685 OE</td>
+<td>GND</td>
+<td>Salidas habilitadas; no hay corte de potencia por software</td>
+</tr>
+<tr>
+<td>PCA9685 A0–A5</td>
+<td>Abiertos</td>
+<td>Dirección I²C 0x40</td>
+</tr>
+<tr>
+<td>Cada CH0–CH7</td>
+<td>Señal del servo correspondiente</td>
+<td>Cable S; V+ y GND a pines de potencia correctos</td>
+</tr>
+</tbody></table>
+<p>GPIO25 y GPIO26 utilizan ADC2 en la ESP32 clásica, compartido con Wi-Fi. El firmware evita su lectura en remoto y apaga Wi-Fi para control manual. <a href="https://docs.espressif.com/projects/esp-idf/en/v4.2/esp32/api-reference/peripherals/adc.html">Referencia Espressif</a>.</p>
+<h2>16–17. Tarjeta, montaje y manufactura</h2>
+<p>E01 muestra un adaptador con borneras y un montaje modular. <strong>No se recibieron archivos de una PCB propia, Gerbers, perforaciones, ni fotos de su fabricación/soldadura.</strong> El esquemático modular y la tabla son editables y reproducibles, pero no acreditan una tarjeta diseñada y fabricada por el equipo. Este criterio permanece pendiente si la práctica exige PCB propia.</p>
+<p>Para cerrarlo: anexar el esquemático y PCB nativos de la tarjeta realmente utilizada, dimensiones y conectores, capas de cobre/serigrafía, archivos de fabricación y fotos de ambas caras antes/después de soldar. Si se utilizó placa perforada, documentar esa técnica, distribución y puentes reales sin presentarla como PCB grabada.</p>
+<p>La foto E01 documenta ubicación general de los controles y cableado. Las correcciones de soldadura y continuidad no tienen registro adjunto.</p>
+<h2>18. Pruebas por bloques</h2>
+<table>
+<thead>
+<tr>
+<th>Prueba</th>
+<th>Procedimiento antes de integrar</th>
+<th>Resultado requerido</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Alimentación</td>
+<td>Medir 3V3 y V+ sin carga y con un servo</td>
+<td>Tensiones registradas y dentro de ficha técnica</td>
+</tr>
+<tr>
+<td>Continuidad</td>
+<td>Equipo sin energía: verificar GND y ausencia de corto V+/GND</td>
+<td>Valor/observación y foto del punto</td>
+</tr>
+<tr>
+<td>I²C</td>
+<td>Verificar respuesta del PCA9685 en arranque</td>
+<td>No aparece error “PCA9685 no encontrado”</td>
+</tr>
+<tr>
+<td>Entradas</td>
+<td>Centrar joysticks al arrancar; variar cada eje en manual</td>
+<td>Centro válido y canal correcto</td>
+</tr>
+<tr>
+<td>PWM</td>
+<td>Osciloscopio en CH0–CH7, frecuencia 50 Hz</td>
+<td>Periodo cercano a 20 ms y pulso consistente con consigna</td>
+</tr>
+<tr>
+<td>Touch</td>
+<td>Toque sostenido y liberación</td>
+<td>Un cambio de modo por toque</td>
+</tr>
+</tbody></table>
+<p><strong>Estado:</strong> protocolos definidos; faltan mediciones fechadas y capturas de instrumentos. Registrar resultados en <code>registros/pruebas.csv</code>.</p>
+<h2>Pinout gráfico y descargas</h2>
+<p><img src="assets/diagrams/pinout.png" alt="Pinout completo"></p>
+<p><a href="assets/diagrams/pinout.svg">Pinout editable SVG</a> · <a href="assets/diagrams/pinout.png">Pinout PNG</a> · <a href="assets/files/Pinout_Brazos.csv">Tabla CSV</a> · <a href="assets/files/Brazos_Gemelos.zip">Código y conexiones ZIP</a>.</p>
+<footer class="custom-footer"><p>Copyright © 2026 IBERO. Proyecto desarrollado por Joshua Abdiel Barragán Guardado, Alfredo José Mérida López y Alonso Cruz Espinosa.</p><p>Documentación del equipo: CC BY 4.0. EEZYbotARM: daGHIZmo, CC BY-NC. <a href="uso-ia.html">Uso de IA</a></p></footer></main></div><div class="turtle-mascot" aria-hidden="true"><svg viewBox="0 0 100 60"><use href="#tortuga-svg"/></svg></div><script>document.getElementById('filter').oninput=e=>{const s=e.target.value.toLocaleLowerCase();document.querySelectorAll('.site-nav a').forEach(a=>a.hidden=!a.textContent.toLocaleLowerCase().includes(s))};</script></body></html>

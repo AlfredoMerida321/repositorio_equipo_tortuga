@@ -1,0 +1,242 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Robot 3D y visor · Equipo Tortuga</title><link rel="icon" href="assets/img/favicon.ico"><link rel="stylesheet" href="assets/css/custom.css"><link rel="stylesheet" href="assets/css/static.css"></head><body><svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="tortuga-svg" viewBox="0 0 100 60">
+    <!-- patas traseras -->
+    <ellipse class="leg-bl" cx="24" cy="47" rx="8" ry="5" fill="#0a7a0c"/>
+    <ellipse class="leg-br" cx="24" cy="47" rx="8" ry="5" fill="#08650a" opacity="0.9"/>
+    <!-- patas delanteras -->
+    <ellipse class="leg-fl" cx="72" cy="47" rx="8" ry="5" fill="#0a7a0c"/>
+    <ellipse class="leg-fr" cx="72" cy="47" rx="8" ry="5" fill="#08650a" opacity="0.9"/>
+    <!-- cola -->
+    <path d="M14 34 Q4 36 8 42 Q12 40 16 36 Z" fill="#0a7a0c"/>
+    <!-- cuerpo / caparazón -->
+    <ellipse cx="50" cy="30" rx="38" ry="22" fill="#066007"/>
+    <ellipse cx="50" cy="30" rx="38" ry="22" fill="none" stroke="#04440a" stroke-width="1.5" opacity="0.5"/>
+    <!-- hexágonos del caparazón -->
+    <g fill="none" stroke="#0d8a12" stroke-width="1.6" opacity="0.85">
+      <polygon points="50,15 58,20 58,29 50,34 42,29 42,20"/>
+      <polygon points="30,22 37,26 37,34 30,38 23,34 23,26"/>
+      <polygon points="70,22 77,26 77,34 70,38 63,34 63,26"/>
+      <polygon points="40,36 47,40 47,47 40,50 33,47 33,40"/>
+      <polygon points="60,36 67,40 67,47 60,50 53,47 53,40"/>
+    </g>
+    <!-- cabeza -->
+    <ellipse cx="90" cy="27" rx="11" ry="9" fill="#0a7a0c"/>
+    <circle cx="94" cy="24" r="1.6" fill="#08240a"/>
+  </symbol>
+</svg><button class="mobile-menu" onclick="document.body.classList.toggle('menu-open')" aria-label="Mostrar menú">☰ Menú</button><aside class="side-bar"><header class="site-header"><a class="site-title" href="index.html"><img src="assets/img/logotipo.png" alt="Logo" class="site-logo">Equipo Tortuga</a></header><div class="search"><input id="filter" placeholder="Buscar sección…" aria-label="Buscar sección"></div><nav class="site-nav"><a class="nav-list-link  " href="index.html">Práctica 01 · Brazos robóticos</a><a class="nav-list-link  " href="01-equipo.html">Equipo de Proyecto</a><a class="nav-list-link  " href="02-descripcion.html">Concepto y definición</a><a class="nav-list-link  " href="03-diagramaBloques.html">Arquitectura y diagramas</a><a class="nav-list-link  " href="04-Robot2D.html">Robot 2D</a><a class="nav-list-link child " href="04-robot2d-plano-corte.html">Plano de cortado</a><a class="nav-list-link child " href="04-robot2d-partes-renderizadas.html">Partes renderizadas</a><a class="nav-list-link child " href="04-robot2d-ensamble-final.html">Ensamble final</a><a class="nav-list-link child " href="04-robot2d-proceso-ensamble.html">Proceso y ensamble final</a><a class="nav-list-link  active" href="05-Robot3D.html">Robot 3D y visor</a><a class="nav-list-link  " href="06-electronica.html">Electrónica y conexiones</a><a class="nav-list-link  " href="07-programacion.html">Programación e interfaz</a><a class="nav-list-link  " href="08-pruebas.html">Integración y pruebas</a><a class="nav-list-link  " href="09-conclusiones.html">Comparación y conclusiones</a><a class="nav-list-link  " href="10-rubrica.html">Matriz de rúbrica y archivos</a><a class="nav-list-link  " href="LEEME_ACTUALIZACION.html">Desarrollo de la práctica</a><a class="nav-list-link  " href="12-proyecto-tortuga.html">Proyecto de tortuga suave</a><a class="nav-list-link  " href="uso-ia.html">Uso de IA en la elaboración de este manual</a></nav><div class="side-note">IBERO · Práctica 01<br>Ingeniería Mecatrónica</div></aside><div class="main"><header class="main-header"><span>Práctica 01 · Brazos robóticos</span><a href="https://github.com/alfredo-merida/repositorio_equipo_tortuga">Repositorio en GitHub</a></header><main class="main-content page-content"><h1>Robot 3D y visor</h1>
+<h2>Modelo, mecanismo y evidencia</h2>
+<p>EEZYbotARM, diseño de <strong>daGHIZmo</strong>, versión de archivos recibida con actualizaciones R01. El conjunto impreso utiliza base giratoria, eslabones, paralelogramo y pinza con engranes. Se conserva el archivo de licencia original <strong>Creative Commons Attribution–NonCommercial</strong>; las condiciones del autor prevalecen sobre el pie de página general del sitio para estos recursos.</p>
+<p><img src="assets/img/practica01/brazo-impreso.png" alt="E02: EEZYbotARM real ensamblado"></p>
+<p><strong>E02.</strong> Ensamble real proporcionado. Permite identificar base fija, soporte giratorio, eslabones, articulaciones y pinza. El polímero exacto y los parámetros de impresión no se pueden determinar con la fotografía.</p>
+<h2>Visor 3D de las piezas originales</h2>
+<iframe title="Visor interactivo de STL EEZYbotARM" class="model-viewer" src="viewer.html" width="100%" height="620" allowfullscreen></iframe>
+
+<p><a href="viewer.html">Ampliar visor</a></p>
+<p>Arrastrar para rotar, rueda para acercar, seleccionar una pieza para inspeccionarla. El visor incorpora las geometrías y funciona sin solicitudes externas. Si la aceleración gráfica falla, cambia automáticamente a Canvas; también puede seleccionarse <strong>Vista compatible</strong>. Los botones permiten vistas isométrica, frontal, lateral y superior, y descarga del STL. <strong>Despiece</strong> muestra los archivos distribuidos en una cuadrícula, no un ensamble cinemático. No se entregaron transformaciones de montaje ni un CAD de conjunto; el visor no inventa esa geometría. Las dimensiones son envolventes del archivo, no recorridos del robot.</p>
+<h2>5–8. Inventario geométrico y láminas</h2>
+<p>Los STL contienen geometría triangulada, no un historial CAD paramétrico. Se incluyen 17 archivos originales, manifest de dimensiones y láminas SVG de referencia. Las unidades STL no están codificadas; se interpretan como mm y deben contrastarse con un componente real. Un archivo disponible no implica que se deba fabricar exactamente una unidad: revisar multiplicidad en el ensamble. El soporte Maestro pertenece al diseño de referencia y no se requiere para el controlador ESP32/PCA9685 descrito.</p>
+<table>
+<thead>
+<tr>
+<th>Archivo / lámina</th>
+<th align="right">X</th>
+<th align="right">Y</th>
+<th align="right">Z</th>
+<th>STL</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="assets/plans/EBA_01.00.001.svg">EBA_01.00.001</a></td>
+<td align="right">52.00</td>
+<td align="right">61.10</td>
+<td align="right">52.63</td>
+<td><a href="assets/models/EBA_01.00.001.STL">Descargar</a></td>
+</tr>
+<tr>
+<td><a href="assets/plans/EBA_01.00.002_vertical_drive_arm.svg">EBA_01.00.002_vertical_drive_arm</a></td>
+<td align="right">46.49</td>
+<td align="right">12.99</td>
+<td align="right">7.50</td>
+<td><a href="assets/models/EBA_01.00.002_vertical_drive_arm.STL">Descargar</a></td>
+</tr>
+<tr>
+<td><a href="assets/plans/EBA_01.00.003_link.svg">EBA_01.00.003_link</a></td>
+<td align="right">92.00</td>
+<td align="right">12.00</td>
+<td align="right">5.00</td>
+<td><a href="assets/models/EBA_01.00.003_link.STL">Descargar</a></td>
+</tr>
+<tr>
+<td><a href="assets/plans/EBA_01.00.004_forward_drive_arm.svg">EBA_01.00.004_forward_drive_arm</a></td>
+<td align="right">92.46</td>
+<td align="right">29.00</td>
+<td align="right">15.00</td>
+<td><a href="assets/models/EBA_01.00.004_forward_drive_arm.STL">Descargar</a></td>
+</tr>
+<tr>
+<td><a href="assets/plans/EBA_01.00.005_horizontal_arm.svg">EBA_01.00.005_horizontal_arm</a></td>
+<td align="right">127.50</td>
+<td align="right">15.00</td>
+<td align="right">8.00</td>
+<td><a href="assets/models/EBA_01.00.005_horizontal_arm.STL">Descargar</a></td>
+</tr>
+<tr>
+<td><a href="assets/plans/EBA_01.00.006_triangular_link.svg">EBA_01.00.006_triangular_link</a></td>
+<td align="right">9.00</td>
+<td align="right">58.25</td>
+<td align="right">29.23</td>
+<td><a href="assets/models/EBA_01.00.006_triangular_link.STL">Descargar</a></td>
+</tr>
+<tr>
+<td><a href="assets/plans/EBA_01.00.009_servo_plate.svg">EBA_01.00.009_servo_plate</a></td>
+<td align="right">34.00</td>
+<td align="right">26.00</td>
+<td align="right">2.50</td>
+<td><a href="assets/models/EBA_01.00.009_servo_plate.STL">Descargar</a></td>
+</tr>
+<tr>
+<td><a href="assets/plans/EBA_01.00.010_basement.svg">EBA_01.00.010_basement</a></td>
+<td align="right">94.67</td>
+<td align="right">87.46</td>
+<td align="right">31.00</td>
+<td><a href="assets/models/EBA_01.00.010_basement.STL">Descargar</a></td>
+</tr>
+<tr>
+<td><a href="assets/plans/EBA_01.00.011_round_plate.svg">EBA_01.00.011_round_plate</a></td>
+<td align="right">72.00</td>
+<td align="right">72.00</td>
+<td align="right">8.50</td>
+<td><a href="assets/models/EBA_01.00.011_round_plate.STL">Descargar</a></td>
+</tr>
+<tr>
+<td><a href="assets/plans/EBA_01.00.012_R01_claw_support.svg">EBA_01.00.012_R01_claw_support</a></td>
+<td align="right">54.00</td>
+<td align="right">25.00</td>
+<td align="right">38.23</td>
+<td><a href="assets/models/EBA_01.00.012_R01_claw_support.STL">Descargar</a></td>
+</tr>
+<tr>
+<td><a href="assets/plans/EBA_01.00.013_R01_right_finger.svg">EBA_01.00.013_R01_right_finger</a></td>
+<td align="right">58.42</td>
+<td align="right">14.02</td>
+<td align="right">9.00</td>
+<td><a href="assets/models/EBA_01.00.013_R01_right_finger.STL">Descargar</a></td>
+</tr>
+<tr>
+<td><a href="assets/plans/EBA_01.00.014_R01_left_finger.svg">EBA_01.00.014_R01_left_finger</a></td>
+<td align="right">58.42</td>
+<td align="right">14.50</td>
+<td align="right">9.00</td>
+<td><a href="assets/models/EBA_01.00.014_R01_left_finger.STL">Descargar</a></td>
+</tr>
+<tr>
+<td><a href="assets/plans/EBA_01.00.015_drive_gear.svg">EBA_01.00.015_drive_gear</a></td>
+<td align="right">20.00</td>
+<td align="right">20.00</td>
+<td align="right">5.00</td>
+<td><a href="assets/models/EBA_01.00.015_drive_gear.STL">Descargar</a></td>
+</tr>
+<tr>
+<td><a href="assets/plans/EBA_01.00.016_R01_driven_gear.svg">EBA_01.00.016_R01_driven_gear</a></td>
+<td align="right">28.00</td>
+<td align="right">21.47</td>
+<td align="right">7.00</td>
+<td><a href="assets/models/EBA_01.00.016_R01_driven_gear.STL">Descargar</a></td>
+</tr>
+<tr>
+<td><a href="assets/plans/EBA_01.00.017_R01_ramp.svg">EBA_01.00.017_R01_ramp</a></td>
+<td align="right">131.00</td>
+<td align="right">114.44</td>
+<td align="right">112.29</td>
+<td><a href="assets/models/EBA_01.00.017_R01_ramp.STL">Descargar</a></td>
+</tr>
+<tr>
+<td><a href="assets/plans/EBA_01.00.018_maestro_holder.svg">EBA_01.00.018_maestro_holder</a></td>
+<td align="right">33.00</td>
+<td align="right">21.00</td>
+<td align="right">50.00</td>
+<td><a href="assets/models/EBA_01.00.018_maestro_holder.STL">Descargar</a></td>
+</tr>
+<tr>
+<td><a href="assets/plans/EBA_01.00.019_ball.svg">EBA_01.00.019_ball</a></td>
+<td align="right">11.99</td>
+<td align="right">12.00</td>
+<td align="right">11.98</td>
+<td><a href="assets/models/EBA_01.00.019_ball.STL">Descargar</a></td>
+</tr>
+</tbody></table>
+<p>Las láminas contienen proyecciones ortogonales y cotas envolventes. <strong>No sustituyen planos de fabricación completos</strong>: faltan cotas de taladros, tolerancias, ajustes y material confirmado. El STL puede usarse en un laminador tras comprobar escala e integridad.</p>
+<h2>6. Materiales mecánicos de la versión impresa</h2>
+<table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>Cantidad</th>
+<th>Especificación disponible</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Juego estructural EEZYbotARM</td>
+<td>Un brazo; 17 STL disponibles</td>
+<td>Polímero sin ficha de material; contabilizar instancias necesarias</td>
+</tr>
+<tr>
+<td>Servos posicionales</td>
+<td>4</td>
+<td>Se ve microservo SG90 en pinza; inventario de los demás pendiente</td>
+</tr>
+<tr>
+<td>Tornillos, tuercas y ejes</td>
+<td>Según ensamble</td>
+<td>Medir diámetros y longitudes antes de adquirir</td>
+</tr>
+<tr>
+<td>Base común</td>
+<td>Compartida</td>
+<td>Tablero observado en E01/E02</td>
+</tr>
+</tbody></table>
+<h2>9. Registro de impresión</h2>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Estado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Versión</td>
+<td>V3D — EEZYbotARM</td>
+</tr>
+<tr>
+<td>Proceso</td>
+<td>Impresión 3D; piezas ensambladas visibles</td>
+</tr>
+<tr>
+<td>Material, impresora y boquilla</td>
+<td>Sin registro proporcionado</td>
+</tr>
+<tr>
+<td>Altura de capa, perímetros y relleno</td>
+<td>Sin registro proporcionado</td>
+</tr>
+<tr>
+<td>Temperatura, velocidad, soportes y orientación</td>
+<td>Sin registro proporcionado</td>
+</tr>
+<tr>
+<td>Archivos</td>
+<td>STL originales incluidos; proyecto de laminado/G-code no recibido</td>
+</tr>
+<tr>
+<td>Ajustes físicos</td>
+<td>Sin bitácora proporcionada</td>
+</tr>
+</tbody></table>
+<p>No se proponen parámetros como si hubieran sido los usados. Completar <code>registros/fabricacion.csv</code> con la configuración del laminador y evidencia de máquina.</p>
+<h2>10–12. Montaje y comprobación</h2>
+<p><img src="assets/diagrams/ensamble.png" alt="Orden técnico de montaje"></p>
+<p>Comprobar giro de base, ejes libres, paralelismo, engrane de dedos y recorrido de cables antes de energizar. Después calibrar cada servo sin carga. Las fotos acreditan el ensamblaje terminado; los ensayos y resultados están <a href="08-pruebas.html">definidos para registro</a>, todavía sin mediciones.</p>
+<h2>Archivos de origen</h2>
+<p><a href="assets/models/README.txt">Descripción original</a> · <a href="assets/models/LICENSE.txt">Licencia original</a> · <a href="assets/files/dimensiones-stl.csv">Dimensiones CSV</a></p>
+<footer class="custom-footer"><p>Copyright © 2026 IBERO. Proyecto desarrollado por Joshua Abdiel Barragán Guardado, Alfredo José Mérida López y Alonso Cruz Espinosa.</p><p>Documentación del equipo: CC BY 4.0. EEZYbotARM: daGHIZmo, CC BY-NC. <a href="uso-ia.html">Uso de IA</a></p></footer></main></div><div class="turtle-mascot" aria-hidden="true"><svg viewBox="0 0 100 60"><use href="#tortuga-svg"/></svg></div><script>document.getElementById('filter').oninput=e=>{const s=e.target.value.toLocaleLowerCase();document.querySelectorAll('.site-nav a').forEach(a=>a.hidden=!a.textContent.toLocaleLowerCase().includes(s))};</script></body></html>

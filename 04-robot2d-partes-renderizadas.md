@@ -8,6 +8,8 @@ parent: Robot 2D
 
 # Partes renderizadas
 
+![Piezas MeArm]({{ '/assets/img/practica01/plano-mearm.png' | relative_url }})
+
 ## Inventario de piezas planas
 
 El archivo recibido identifica P1–P36 en una sola hoja. No se recibieron sólidos 3D individuales del MeArm, por lo que no se presentan imágenes genéricas como renders propios.

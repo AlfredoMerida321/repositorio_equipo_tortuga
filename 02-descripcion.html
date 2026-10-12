@@ -1,0 +1,123 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Concepto y definición · Equipo Tortuga</title><link rel="icon" href="assets/img/favicon.ico"><link rel="stylesheet" href="assets/css/custom.css"><link rel="stylesheet" href="assets/css/static.css"></head><body><svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="tortuga-svg" viewBox="0 0 100 60">
+    <!-- patas traseras -->
+    <ellipse class="leg-bl" cx="24" cy="47" rx="8" ry="5" fill="#0a7a0c"/>
+    <ellipse class="leg-br" cx="24" cy="47" rx="8" ry="5" fill="#08650a" opacity="0.9"/>
+    <!-- patas delanteras -->
+    <ellipse class="leg-fl" cx="72" cy="47" rx="8" ry="5" fill="#0a7a0c"/>
+    <ellipse class="leg-fr" cx="72" cy="47" rx="8" ry="5" fill="#08650a" opacity="0.9"/>
+    <!-- cola -->
+    <path d="M14 34 Q4 36 8 42 Q12 40 16 36 Z" fill="#0a7a0c"/>
+    <!-- cuerpo / caparazón -->
+    <ellipse cx="50" cy="30" rx="38" ry="22" fill="#066007"/>
+    <ellipse cx="50" cy="30" rx="38" ry="22" fill="none" stroke="#04440a" stroke-width="1.5" opacity="0.5"/>
+    <!-- hexágonos del caparazón -->
+    <g fill="none" stroke="#0d8a12" stroke-width="1.6" opacity="0.85">
+      <polygon points="50,15 58,20 58,29 50,34 42,29 42,20"/>
+      <polygon points="30,22 37,26 37,34 30,38 23,34 23,26"/>
+      <polygon points="70,22 77,26 77,34 70,38 63,34 63,26"/>
+      <polygon points="40,36 47,40 47,47 40,50 33,47 33,40"/>
+      <polygon points="60,36 67,40 67,47 60,50 53,47 53,40"/>
+    </g>
+    <!-- cabeza -->
+    <ellipse cx="90" cy="27" rx="11" ry="9" fill="#0a7a0c"/>
+    <circle cx="94" cy="24" r="1.6" fill="#08240a"/>
+  </symbol>
+</svg><button class="mobile-menu" onclick="document.body.classList.toggle('menu-open')" aria-label="Mostrar menú">☰ Menú</button><aside class="side-bar"><header class="site-header"><a class="site-title" href="index.html"><img src="assets/img/logotipo.png" alt="Logo" class="site-logo">Equipo Tortuga</a></header><div class="search"><input id="filter" placeholder="Buscar sección…" aria-label="Buscar sección"></div><nav class="site-nav"><a class="nav-list-link  " href="index.html">Práctica 01 · Brazos robóticos</a><a class="nav-list-link  " href="01-equipo.html">Equipo de Proyecto</a><a class="nav-list-link  active" href="02-descripcion.html">Concepto y definición</a><a class="nav-list-link  " href="03-diagramaBloques.html">Arquitectura y diagramas</a><a class="nav-list-link  " href="04-Robot2D.html">Robot 2D</a><a class="nav-list-link child " href="04-robot2d-plano-corte.html">Plano de cortado</a><a class="nav-list-link child " href="04-robot2d-partes-renderizadas.html">Partes renderizadas</a><a class="nav-list-link child " href="04-robot2d-ensamble-final.html">Ensamble final</a><a class="nav-list-link child " href="04-robot2d-proceso-ensamble.html">Proceso y ensamble final</a><a class="nav-list-link  " href="05-Robot3D.html">Robot 3D y visor</a><a class="nav-list-link  " href="06-electronica.html">Electrónica y conexiones</a><a class="nav-list-link  " href="07-programacion.html">Programación e interfaz</a><a class="nav-list-link  " href="08-pruebas.html">Integración y pruebas</a><a class="nav-list-link  " href="09-conclusiones.html">Comparación y conclusiones</a><a class="nav-list-link  " href="10-rubrica.html">Matriz de rúbrica y archivos</a><a class="nav-list-link  " href="LEEME_ACTUALIZACION.html">Desarrollo de la práctica</a><a class="nav-list-link  " href="12-proyecto-tortuga.html">Proyecto de tortuga suave</a><a class="nav-list-link  " href="uso-ia.html">Uso de IA en la elaboración de este manual</a></nav><div class="side-note">IBERO · Práctica 01<br>Ingeniería Mecatrónica</div></aside><div class="main"><header class="main-header"><span>Práctica 01 · Brazos robóticos</span><a href="https://github.com/alfredo-merida/repositorio_equipo_tortuga">Repositorio en GitHub</a></header><main class="main-content page-content"><h1>Concepto y definición</h1>
+<h2>1. Problema, objetivos y requisitos</h2>
+<p>Se requiere comparar dos técnicas de fabricación mediante manipuladores capaces de orientar una base, posicionar una pinza y abrir o cerrar el efector. La operación debe ser intuitiva, independiente para cada brazo y reproducible con una sola unidad de procesamiento.</p>
+<p><strong>Objetivo general.</strong> Integrar un MeArm fabricado con piezas planas y un EEZYbotARM impreso, ambos de cuatro servos, bajo una ESP32, y documentar su construcción, control y evaluación con criterios comunes.</p>
+<p><strong>Objetivos específicos.</strong> Identificar piezas y uniones; implementar ocho canales de actuación; asignar dos joysticks a cada brazo; alternar entre manual y remoto; establecer límites por articulación; comparar montaje, movilidad y desempeño con evidencia trazable.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito</th>
+<th>Criterio de comprobación</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>R01</td>
+<td>Dos versiones físicas</td>
+<td>Foto identificada de MeArm y EEZYbotARM</td>
+</tr>
+<tr>
+<td>R02</td>
+<td>Cuatro servos por brazo</td>
+<td>Base, codo, hombro y pinza; canales 0–7</td>
+</tr>
+<tr>
+<td>R03</td>
+<td>Dos joysticks por brazo</td>
+<td>J1 X: base; J1 Y: codo; J2 Y: hombro; J2 X: pinza</td>
+</tr>
+<tr>
+<td>R04</td>
+<td>Una ESP32 y PCA9685</td>
+<td>Conexiones I²C y PWM verificadas</td>
+</tr>
+<tr>
+<td>R05</td>
+<td>Modo manual independiente</td>
+<td>Cada eje actúa sobre su canal sin mover el otro brazo</td>
+</tr>
+<tr>
+<td>R06</td>
+<td>Modo remoto</td>
+<td>Cambio por touch, conexión al AP y respuesta a botones</td>
+</tr>
+<tr>
+<td>R07</td>
+<td>Movimiento acotado</td>
+<td>Centro estable, sentidos correctos y límites sin colisión</td>
+</tr>
+<tr>
+<td>R08</td>
+<td>Entrega reproducible</td>
+<td>Código, geometría, conexiones, instrucciones y registro de pruebas</td>
+</tr>
+</tbody></table>
+<p><strong>Restricciones.</strong> El firmware de la práctica requiere ESP32 clásica WROOM-32 (no C3/C6/S3), servos posicionales, fuente externa para potencia y tierra común. Los límites iniciales 60–120° y posición 90° son consignas de prueba, pendientes de calibración mecánica. No existe sensor externo de posición ni control cartesiano implementado. La pinza añade una acción de apertura a los tres movimientos de posicionamiento; cuatro servos no equivalen a cuatro ejes independientes de pose cartesiana.</p>
+<h2>2. Bocetos de la solución</h2>
+<p><img src="assets/diagrams/ensamble.png" alt="Boceto funcional y secuencia mecánica"></p>
+<p>El conjunto se organiza desde la base fija hacia la pinza: base giratoria, soportes de hombro, eslabones y paralelogramo, soporte de pinza y dedos. La transmisión mediante eslabones hace que las consignas de servo no se interpreten directamente como ángulos cartesianos del efector.</p>
+<p><img src="assets/img/eezybotarm/EZYbotARM_01.png" alt="Referencia de diseño incluida en el paquete EEZYbotARM"></p>
+<p>Referencia del autor del modelo, <strong>no fotografía del prototipo del equipo</strong>. Véanse también las fotografías E01 y E02 y las láminas por pieza.</p>
+<h2>3. Alternativas y selección</h2>
+<table>
+<thead>
+<tr>
+<th>Decisión</th>
+<th>Alternativas</th>
+<th>Selección y justificación</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Estructura</td>
+<td>Placas cortadas / sólidos impresos</td>
+<td>Se construyen ambas para comparar fabricación y ensamble; no se asume cuál es más resistente sin ensayo</td>
+</tr>
+<tr>
+<td>Generación PWM</td>
+<td>ESP32 directa / PCA9685</td>
+<td>PCA9685 concentra ocho salidas y mantiene pulsos mediante hardware; coincide con el firmware de la práctica</td>
+</tr>
+<tr>
+<td>Interfaz</td>
+<td>Joysticks / navegador</td>
+<td>Se conservan ambas: manual para control local; AP para acceso remoto sin router</td>
+</tr>
+<tr>
+<td>Procesamiento</td>
+<td>Dos ESP32 / una ESP32</td>
+<td>Una ESP32 comparte lógica, alimentación de control y comunicación; mantiene asignación independiente por canal</td>
+</tr>
+<tr>
+<td>Regulación</td>
+<td>Lazo abierto de consignas / sensores externos</td>
+<td>Se usa el lazo externo abierto existente; la realimentación interna del servo no proporciona posición al ESP32</td>
+</tr>
+</tbody></table>
+<h2>4. Arquitectura general</h2>
+<p><a href="03-diagramaBloques.html">Consultar el diagrama de subsistemas y el esquema electrónico</a>. La selección prioriza compatibilidad con el montaje y el código existentes. Las ventajas dimensionales y de desempeño se deben comprobar con el protocolo común de pruebas.</p>
+<footer class="custom-footer"><p>Copyright © 2026 IBERO. Proyecto desarrollado por Joshua Abdiel Barragán Guardado, Alfredo José Mérida López y Alonso Cruz Espinosa.</p><p>Documentación del equipo: CC BY 4.0. EEZYbotARM: daGHIZmo, CC BY-NC. <a href="uso-ia.html">Uso de IA</a></p></footer></main></div><div class="turtle-mascot" aria-hidden="true"><svg viewBox="0 0 100 60"><use href="#tortuga-svg"/></svg></div><script>document.getElementById('filter').oninput=e=>{const s=e.target.value.toLocaleLowerCase();document.querySelectorAll('.site-nav a').forEach(a=>a.hidden=!a.textContent.toLocaleLowerCase().includes(s))};</script></body></html>

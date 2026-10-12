@@ -26,6 +26,6 @@ Diseño, fabricación e integración de dos manipuladores de cuatro servomotores
 7. [Comparación y conclusiones]({{ '/09-conclusiones/' | relative_url }}).
 8. [Matriz de los 31 criterios y entregables]({{ '/10-rubrica/' | relative_url }}).
 
-> **Alcance de la evidencia:** se incluyen los archivos recibidos, las dos fotografías y el firmware recuperado. Las mediciones, parámetros de máquina, evidencia de soldadura y prueba funcional no proporcionados se señalan como pendientes. No se atribuye a la práctica una validación experimental que no esté documentada.
+> **Alcance de la evidencia:** se incluyen los archivos recibidos, las dos fotografías y el firmware de la práctica. Las mediciones, parámetros de máquina, evidencia de soldadura y prueba funcional no proporcionados se señalan como pendientes. No se atribuye a la práctica una validación experimental que no esté documentada.
 
 El [proyecto de tortuga suave]({{ '/12-proyecto-tortuga/' | relative_url }}) se conserva como trabajo independiente.
