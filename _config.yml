@@ -1,5 +1,5 @@
-title: Portafolio
-description: Repositorio base para enseñar y crear documentación en GitHub Pages con Just the Docs
+title: Equipo Tortuga
+description: Práctica 01 — dos brazos robóticos, fabricación y control con ESP32
 
 # GitHub Pages: modo recomendado
 remote_theme: just-the-docs/just-the-docs
@@ -29,7 +29,7 @@ search:
 # Ejemplo de enlace auxiliar (aparece arriba a la derecha)
 aux_links:
   "Repositorio en GitHub":
-    - "https://github.com/HuberGiron/portafolio-just-the-docs"
+    - "https://github.com/alfredo-merida/repositorio_equipo_tortuga"
 
 # Enlaces
 permalink: pretty

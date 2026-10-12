@@ -1,4 +1,5 @@
 ---
+permalink: /04-robot2d-plano-corte/
 layout: default
 title: Plano de cortado
 parent: Robot 2D
@@ -26,4 +27,8 @@ Entendiendo que tenía el archivo dimensiones estandarizadas de 20 x 30cm, pudim
 </iframe>
 
 
-[Ver PDF en pantalla completa](assets/files/MeArm_piezas_P1_a_P36.pdf)
+[Ver PDF en pantalla completa]({{ '/assets/files/MeArm_piezas_P1_a_P36.pdf' | relative_url }})
+
+## Alcance del plano recibido
+
+El PDF contiene identificación de piezas P1–P36; faltan cotas funcionales completas, tolerancias, espesor confirmado y archivo de corte editable (DXF/SVG/CAD). Se conserva como referencia original, sin afirmar que satisface por sí solo todos los requisitos de fabricación.

@@ -1,18 +1,13 @@
 ---
+permalink: /04-robot2d-ensamble-final/
 layout: default
 title: Ensamble final
-parent: Robot 2D
 nav_order: 3
+parent: Robot 2D
 ---
 
 # Ensamble final
 
-En esta sección se presenta el modelo completo del robot 2D una vez integradas todas las piezas.
+![E01: MeArm y EEZYbotARM ensamblados]({{ '/assets/img/practica01/sistema-completo.png' | relative_url }})
 
-El objetivo es mostrar la relación entre los diferentes componentes y la configuración final del mecanismo.
-
-## Ensamble completo
-
-![Ensamble final](assets/img/ensamble_robot2d.png)
-
-Aquí puedes agregar una breve explicación del ensamble, cómo se conectan las piezas y cuáles son los principales componentes.
+**E01.** El MeArm es el conjunto transparente a la izquierda. Se identifican base, eslabones planos, pinza, servos y conexiones de alimentación/señal. La perspectiva no permite medir dimensiones o holguras con precisión. La imagen acredita ensamblaje; las pruebas funcionales se registran por separado.

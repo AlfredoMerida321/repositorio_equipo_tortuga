@@ -1,4 +1,5 @@
 ---
+permalink: /01-equipo/
 layout: default
 title: Equipo de Proyecto
 nav_order: 2
@@ -15,4 +16,4 @@ Este proyecto fue desarrollado por:
 
 ## Siguiente sección
 
-[Estructura del repositorio](02-descripcion.md)
+[Estructura del repositorio]({{ '/02-descripcion/' | relative_url }})

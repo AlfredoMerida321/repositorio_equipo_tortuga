@@ -1,32 +1,40 @@
 ---
+permalink: /04-robot2d-proceso-ensamble/
 layout: default
 title: Proceso y ensamble final
-parent: Robot 2D
 nav_order: 4
+parent: Robot 2D
 ---
 
 # Proceso y ensamble final
 
-En esta sección se documenta el proceso físico de fabricación y montaje del robot 2D mediante fotografías y videos.
+## 9. Registro de fabricación
 
-Se muestran las diferentes etapas del proyecto, desde las piezas recién fabricadas hasta el robot completamente ensamblado.
+| Campo | Información disponible |
+|---|---|
+| Versión | V2D — MeArm |
+| Proceso declarado | Corte láser de piezas planas |
+| Archivo recibido | MeArm_piezas_P1_a_P36.pdf |
+| Archivo editable / CAM usado | No proporcionado |
+| Material | Acrílico declarado; grado y espesor sin registro |
+| Máquina, potencia, velocidad, pasadas | No proporcionados |
+| Compensación de kerf | Sin registro |
+| Ajustes y fecha de fabricación | Sin registro |
+| Evidencia | E01, conjunto terminado |
 
-## Proceso de fabricación
+## 10. Secuencia de construcción
 
-Aquí puedes incluir fotografías del corte y de las piezas individuales.
+![Secuencia propuesta de ensamblaje]({{ '/assets/diagrams/ensamble.svg' | relative_url }})
 
-![Proceso de fabricación](assets/img/proceso1.jpg)
+1. Revisar escala, espesor, ranuras y perforaciones antes del corte; realizar una probeta de ajuste.
+2. Desbarbar sin modificar cotas funcionales y separar piezas por función.
+3. Montar base y soportes; centrar cada servo desacoplado antes de colocar el horn.
+4. Armar hombro, codo y paralelogramo; apretar únicamente hasta conservar giro libre.
+5. Instalar pinza, fijar cables con holgura y sujetar la base al tablero.
+6. Probar un eje a la vez, ajustar sentidos/límites y registrar interferencias.
 
-## Proceso de ensamblaje
+Esta guía describe el orden técnico recomendado. No reemplaza una bitácora contemporánea de fabricación. Faltan fotografías de corte, piezas antes de montar y uniones intermedias.
 
-Aquí puedes mostrar fotografías del montaje.
+## 12. Pruebas mecánicas
 
-![Proceso de ensamblaje](assets/img/proceso2.jpg)
-
-## Resultado final
-
-![Robot ensamblado](assets/img/robot_final.jpg)
-
-## Videos
-
-Aquí puedes agregar enlaces o videos del funcionamiento del robot.
+[Protocolo de movilidad, holgura, agarre y repetibilidad]({{ '/08-pruebas/' | relative_url }}). Registrar los resultados reales en `registros/pruebas.csv`; no hay mediciones adjuntas de esta versión.

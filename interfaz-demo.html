@@ -1,0 +1,18 @@
+
+<!doctype html><html lang="es"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brazos gemelos</title><style>
+body{font:17px system-ui;background:#f1f4f8;color:#172b42;margin:20px auto;max-width:800px;padding:0 14px}
+.arms{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+section{background:white;padding:18px;border-radius:16px}h1{font-size:27px}
+.row{border-top:1px solid #ddd;padding:14px 0}.buttons{display:flex;gap:8px;margin-top:8px}
+button{flex:1;padding:16px 8px;background:#1268b3;color:white;border:0;border-radius:9px;font-size:16px;touch-action:none;user-select:none}
+button:active{background:#093b66}small{color:#5b6875}#status{min-height:28px}
+</style><h1>Control de brazos gemelos</h1>
+<p>Mantén pulsado para mover. Suelta para detener. Un servo a la vez.</p>
+<p id="status">VISTA DEMOSTRATIVA · sin conexión al hardware</p><div class="arms" id="arms"></div>
+<p><small>Vista extraída del firmware; no opera los brazos.</small></p>
+<script>
+const names=['Base','Codo','Hombro','Pinza / efector'], labels=[['Izquierda','Derecha'],['Atrás','Adelante'],['Atrás','Adelante'],['Cerrar','Abrir']];
+for(let a=0;a<2;a++){const s=document.createElement('section');s.innerHTML='<h2>Brazo '+(a+1)+'</h2>';for(let j=0;j<4;j++){const row=document.createElement('div');row.className='row';row.innerHTML='<b>'+names[j]+'</b> <small>Canal '+(a*4+j)+'</small><div class="buttons"></div>';for(const l of labels[j]){const b=document.createElement('button');b.textContent=l;b.onclick=()=>document.getElementById('status').textContent='Demostración: Brazo '+(a+1)+' · '+names[j]+' · '+l+' (sin envío)';row.lastElementChild.append(b)}s.append(row)}document.getElementById('arms').append(s)}
+</script></html>
