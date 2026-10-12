@@ -1,0 +1,8 @@
+Corrección del diseño del reporte
+
+1. Extraer este ZIP.
+2. Reemplazar los archivos HTML de la raíz del repositorio con estos archivos (no crear una subcarpeta).
+3. Conservar las carpetas assets, firmware y registros que ya tiene el repositorio. Incluir .nojekyll.
+4. Publicar los cambios y actualizar el navegador con Ctrl+F5.
+
+El parche conserva las secciones de la práctica, el visor, las fotografías y las descargas. Los estilos Just the Docs y las imágenes mostradas se incluyen dentro de las páginas. El visor incorpora los STL.
