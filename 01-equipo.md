@@ -12,7 +12,7 @@ Este proyecto fue desarrollado por:
 
 - Alfredo José Mérida López
 - Joshua Abdiel Barragan Guardado
-- Alonso Cruz Espinosa
+- Jose Martin Santoyo Espinoza
 
 ## Siguiente sección
 
